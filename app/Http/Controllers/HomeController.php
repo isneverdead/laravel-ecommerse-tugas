@@ -34,9 +34,7 @@ class HomeController extends Controller
     {
         return view('admin.admin');
     }
-    public function adminAddProduct() {
-        return view('admin.addproduct');
-    }
+    
     function addProduct(Request $req) {
         if(auth() != null){
             // echo("jalan");

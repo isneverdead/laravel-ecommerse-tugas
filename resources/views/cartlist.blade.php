@@ -6,7 +6,7 @@
       <div class="col-sm-10">
         <div class="trending-wrapper">
             <h3>Cart List</h3>
-            <a  href="/ordernow"><button style="margin: 10px" class="btn btn-success">Order Now</button></a>
+            <a  href="/checkout"><button style="margin: 10px" class="btn btn-success">Checkout</button></a>
           @foreach ($products as $item)
           <div class="row searched-item cart-list-devider">
           <div class="col-sm-3">

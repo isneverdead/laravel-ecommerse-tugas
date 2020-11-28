@@ -14,7 +14,7 @@
       <div class="carousel-item {{$item['id'] == 4 ? 'active' : ''}} "  >
         <a href="detail/{{$item['id']}}">
         
-          <img  src="{{ $item['gallery'] }}" class="d-block w-100 " style="height: 500px" alt="...">
+          <img  src="{{ $item['gallery'] }}" class="d-block w-auto " style="height: 500px" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ $item['name'] }}</h5>
             <p>{{ $item['description'] }}</p>

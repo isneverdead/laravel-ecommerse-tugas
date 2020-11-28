@@ -29,11 +29,10 @@
                         <div class="form-group">
                             <label for="inputKategoriBarang">Kategori Barang</label>
                             <select class="form-control" name="kategoriBarang" id="inputKategoriBarang">
-                              <option>Handphone</option>
-                              <option>Laptop</option>
-                              <option>Accecorries</option>
-                              <option>Software</option>
-                              <option>Other</option>
+                              @foreach ($data as $item)
+                              <option>{{$item->category}}</option>
+                              @endforeach
+                              
                             </select>
                         </div>
                         <div class="form-group">

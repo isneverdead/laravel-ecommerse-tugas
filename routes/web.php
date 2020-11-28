@@ -17,10 +17,13 @@ use App\Http\Controllers\AdminController;
 */
 //////////////////////        ADMIN     ///////////////////////
 Route::get('admin', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Route::get('admin/add-barang', [HomeController::class, 'adminAddProduct'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/add-barang', [AdminController::class, 'adminAddProduct'])->name('admin.home')->middleware('is_admin');
 Route::post("admin/add-barang", [HomeController::class, 'addProduct']);
+Route::post("admin/add-category", [AdminController::class, 'addCategory']);
+Route::post("admin/remove-barang/{id}", [ProductController::class, 'removeProduct']);
 Route::get("admin/barang", [ProductController::class, 'adminListBarang']);
 Route::get("admin/category", [AdminController::class, 'category']);
+Route::get("admin/remove-category/{id}", [AdminController::class, 'removeCategory']);
 
 
 
@@ -40,7 +43,7 @@ Route::get("search", [ProductController::class, 'search']);
 Route::post("add_to_cart", [ProductController::class, 'addToCart']);
 Route::get("cartlist", [ProductController::class, 'cartList']);
 Route::get("removecart/{id}", [ProductController::class, 'removeCart']);
-Route::get("ordernow", [ProductController::class, 'orderNow']);
+Route::get("checkout", [ProductController::class, 'checkout']);
 Route::post("orderplace", [ProductController::class, 'orderPlace']);
 Route::get("myorder", [ProductController::class, 'myOrder']);
 
