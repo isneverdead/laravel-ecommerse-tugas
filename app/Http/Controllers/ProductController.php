@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,7 @@ class ProductController extends Controller
     //
     function index() {
         $data = Product::all();
-        
+        // return $data['0']['id'];
         return view('product', ['products' => $data]);
     }
     function detail($id) {
@@ -95,5 +96,29 @@ class ProductController extends Controller
         $data = Product::all();
         return view('admin.listbarang', ['products' => $data]);
     }
-    
+    function favorite() {
+        $userId = Auth::id();
+        $data = DB::table('favorite')
+        ->join('products', 'favorite.id_product', 'products.id')
+        ->select('products.*', 'favorite.id as favorite_id')
+        ->where('favorite.id_user', $userId)
+        ->get();
+        return view('favorite', ['favItem' => $data]);
+    }
+    function addFavorite($id) {
+        $favList = Favorite::all();
+        if(Auth::user() != null){
+            $favorite = new Favorite;
+            $favorite->id_user = Auth::id();
+            $favorite->id_product = $id;
+            $favorite->save();
+            return redirect('/favorite');
+        }else {
+            return redirect('login');
+        }
+    }
+    function removeFavorite($id) {
+        Favorite::destroy($id);
+        return redirect('/favorite');
+    }
 }

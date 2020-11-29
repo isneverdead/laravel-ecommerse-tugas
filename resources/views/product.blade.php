@@ -11,7 +11,7 @@
       
       @foreach ($products as $item)
           
-      <div class="carousel-item {{$item['id'] == 4 ? 'active' : ''}} "  >
+      <div class="carousel-item {{$item['id'] == $products['0']['id'] ? 'active' : ''}} "  >
         <a href="detail/{{$item['id']}}">
         
           <img  src="{{ $item['gallery'] }}" class="d-block w-auto " style="height: 500px" alt="...">
@@ -38,15 +38,25 @@
           <div class="row">
 
             @foreach ($products as $item)
-            <div class="trending-item col-sm-6">
-            <a href="detail/{{$item['id']}}">
-                <img class="trending-image col-sm-6" src="{{ $item['gallery'] }}" >
-                <div class="col-sm-6">
-                  <h3>{{ $item['name'] }}</h3>
-                  
+            <div class="card col-sm-3" style="width: 18rem; position: relative;">
+              <img src="{{ $item['gallery'] }}" class="card-img-top" alt="...">
+              <a href="favorite/add/{{ $item['id'] }}">
+                <h3 style="position: absolute; top:10px; right:10px; color:rgb(235, 49, 80); background-color:rgba(250, 250, 250, 0.486); padding:5px; border-radius:15%;"><i class="far fa-heart"></i>
+    
+                </h3>
+              </a>
+              <div class="card-body mt-auto">
+                <h5 class="card-title">{{ $item['name'] }}</h5>
+                <div class="row">
+  
+                  <a href="detail/{{$item['id']}}" class="mx-auto"><button type="button" class="btn btn-outline-danger px-5 ">Beli</button>
+                  </a>
                 </div>
-            </a>
+              </div>
             </div>
+
+
+            
             @endforeach
           </div>
       </div>

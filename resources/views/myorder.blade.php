@@ -7,33 +7,26 @@
         <div class="trending-wrapper">
             <h3>Orders List</h3>
           @foreach ($orders as $item)
-          <div class="row searched-item cart-list-devider">
+          <div class="row searched-item mb-3">
           <div class="col-sm-3">
             <a href="detail/{{$item->id}}">
-                <img class="trending-image" src="{{ $item->gallery }}" >
+                <img class="trending-image col-sm-12" src="{{ $item->gallery }}" >
                 
             </a>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-9">
             
-                
-                <div class="">
-                  <h2>{{ $item->name }}</h2>
-                  <h5>Delivery Status : {{ $item->status }}</h5>
-                  <h5>Payment Status : {{ $item->payment_status }}</h5>
-                  <h5>Payment Method : {{ $item->payment_method }}</h5>
-                  <h5>Delivery Address : {{ $item->address }}</h5>
-                  <h5>Price : {{ $item->price }}</h5>
-                  
-                </div>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center ">Delivery Status : <span>{{ $item->status }}</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">Payment Status : <span>{{ $item->payment_status }}</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">Payment Method : <span>{{ $item->payment_method }}</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">Delivery Address : <span>{{ $item->address }}</span></li>
+              <li class="list-group-item  d-flex justify-content-between align-items-center">Price : <span>Rp.{{ $item->price }}</span> </li>
+            </ul>
+               
             
           </div>
-          <div class="col-sm-3">
-          {{-- <a href="/removecart/{{$item->cart_id}}"> --}}
-        
-            {{-- <button class="btn btn-danger">Remove from cart</button> --}}
-        {{-- </a> --}}
-          </div>
+          
           </div>
           @endforeach
         </div>

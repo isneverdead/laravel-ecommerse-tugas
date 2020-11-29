@@ -5,7 +5,12 @@
         <div class="col-sm-6">
         <img class="col-sm-12" src="{{$product['gallery']}}" alt="">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" >
+            {{-- <a href="favorite/add/{{ $product['id'] }}">
+                <h3 style="position: absolute; top:10px; right:10px; color:rgb(235, 49, 80); background-color:rgba(250, 250, 250, 0.486); padding:5px; border-radius:15%;"><i class="far fa-heart"></i>
+    
+                </h3>
+              </a> --}}
             <a href="/">Go back</a>
         <h2>{{$product['name']}}</h2>
         <h3>Price : {{$product['price']}}</h3>
@@ -28,7 +33,7 @@
         @endif
         <button style="margin: 20px" class="btn btn-success">Buy Now</button>
         </div>
-    </div>
+   
 </div>
     
 @endsection

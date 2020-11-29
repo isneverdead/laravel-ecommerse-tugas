@@ -45,5 +45,8 @@ Route::get("cartlist", [ProductController::class, 'cartList']);
 Route::get("removecart/{id}", [ProductController::class, 'removeCart']);
 Route::get("checkout", [ProductController::class, 'checkout']);
 Route::post("orderplace", [ProductController::class, 'orderPlace']);
-Route::get("myorder", [ProductController::class, 'myOrder']);
+Route::get("myorder", [ProductController::class, 'myOrder']); 
+Route::get("favorite", [ProductController::class, 'favorite']);
+Route::get("favorite/add/{id}", [ProductController::class, 'addFavorite']);
+Route::get("favorite/remove/{id}", [ProductController::class, 'removeFavorite']);
 
